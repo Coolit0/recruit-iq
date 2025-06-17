@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import JDAnalyzer from "./JDAnalyzer";
 import {
   ThemeProvider,
   createTheme,
@@ -57,7 +58,7 @@ const theme = createTheme({
 });
 
 const App: React.FC = () => {
-  const [tab, setTab] = useState("1");
+  const [tabValue, setTabValue] = useState("1");
   const [resumeText, setResumeText] = useState("");
   const [screeningNotes, setScreeningNotes] = useState("");
   const [endorsement, setEndorsement] = useState("");
@@ -67,7 +68,7 @@ const App: React.FC = () => {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
 
   const handleTabChange = (_: React.SyntheticEvent, newValue: string) => {
-    setTab(newValue);
+    setTabValue(newValue);
   };
 
   const onDrop = (acceptedFiles: File[]) => {
@@ -140,11 +141,12 @@ const App: React.FC = () => {
         </Box>
 
         <Container maxWidth="lg">
-          <TabContext value={tab}>
+          <TabContext value={tabValue}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
-              <Tabs value={tab} onChange={handleTabChange} aria-label="main tabs">
-                <Tab label="Endorsement Generator" value="1" />
-                <Tab label="Follow-up Dashboard" value="2" />
+              <Tabs value={tabValue} onChange={handleTabChange}>
+                <Tab label="Candidate Endorsement" value="1" />
+                <Tab label="Client Follow-ups" value="2" />
+                <Tab label="JD Analyzer" value="3" />
               </Tabs>
             </Box>
 
@@ -302,6 +304,10 @@ const App: React.FC = () => {
 
             <TabPanel value="2">
               <ClientFollowUpDashboard />
+            </TabPanel>
+
+            <TabPanel value="3">
+              <JDAnalyzer />
             </TabPanel>
           </TabContext>
         </Container>
