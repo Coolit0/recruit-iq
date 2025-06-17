@@ -179,7 +179,7 @@ const App: React.FC = () => {
             <Container maxWidth="lg">
               <Grid container spacing={4}>
                 {/* Left Column - Input */}
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                   <Paper sx={{ p: 3, height: '100%' }}>
                     <Typography variant="h6" gutterBottom>
                       Candidate Information
@@ -257,7 +257,7 @@ const App: React.FC = () => {
                 </Grid>
 
                 {/* Right Column - Output */}
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                   <Paper sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                       <Typography variant="h6">Endorsement Preview</Typography>
@@ -351,7 +351,7 @@ const App: React.FC = () => {
                           <Typography variant="body2" color="text.secondary" align="center">
                             Your generated endorsement will appear here.
                             <br />
-                            Fill in the left panel and click "Generate Endorsement".
+                            Fill in the left panel and click &quot;Generate Endorsement&quot;.
                           </Typography>
                         </Box>
                       )}
